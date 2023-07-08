@@ -36,6 +36,10 @@ Since the qeue is stored as segments of the maximal size of `m`, the largest mes
 Writing to the queue imposes a total ordering of the events. This mean that writing events in parallel won't increase the throughtput of the service.
 Also, after every messages a `msync` syscall will be peformed to make the change durable on the disk.
 
+### Fault tolerance
+At the moment, `followme` is meant to be non-redundant since process service.
+This means that as soon as the process terminates, the service will be unavailable.
+Ideally this service would be run in Kubernetes as a single repica `StatefulSet`, which would restart pods on crashes.
 
 
 
