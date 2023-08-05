@@ -4,8 +4,8 @@ import "github.com/urfave/cli/v2"
 
 func main() {
 	app := &cli.App{
-		Action: func(ctx *cli.Context) error {
-
+		Action: func(c *cli.Context) error {
+			return nils
 		},
 	}
 	app.RunAndExitOnError()
